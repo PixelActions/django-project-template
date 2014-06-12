@@ -17,4 +17,4 @@ media/
 .idea/
 
 #Settings are sensitive. Shouldn't be added to the repo. Keep them local
-#fabsettings.py
+fabsettings.py
