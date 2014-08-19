@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
     <h1>{% trans "Quick Contact" %}</h1>
@@ -8,6 +8,13 @@
    {% if formsuccess %}
    <h2>{% trans "Thank you for your message!" %}</h2>
    {% else %}
+   <!-- Form generated from crispt forms -->
+   <form action="{% url 'pages_contact' %}" method="post">
+        {{form|crispy}}
+        <input class="btn btn-primary" type="submit" value="Submit">
+   </form>
+   
+   <!-- Form specified explicitly -->
     <form action="{% url 'pages_contact' %}" method="post">
         {% csrf_token %}
         {{ form.non_field_errors }}
