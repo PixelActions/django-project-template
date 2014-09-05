@@ -3,4 +3,5 @@
 
 gunicorn==18.0
 MySQL-python==1.2.5
-
+#enable if using memached on server
+#python-memcached==1.53

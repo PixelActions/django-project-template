@@ -38,3 +38,15 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_SUBJECT_PREFIX = '[{{project_name}}] '
 '''
+
+'''
+#Uncomment to use memcached. Configuration is the one provided on webfaction
+#http://docs.webfaction.com/software/memcached.html
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/home/username/memcached.sock',
+    }
+}
+'''
