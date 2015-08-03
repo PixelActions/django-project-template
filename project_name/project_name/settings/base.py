@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.join(BASE_DIR, '..')
 
 # Quick-start development settings - unsuitable for production
@@ -14,8 +14,6 @@ SECRET_KEY = '{{ SECRET_KEY }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -30,12 +28,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'south',
     #'apps.pages',
     #'crispy_forms',
     #'easy_thumbnails',
     #'rosetta',
-    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,9 +42,30 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = '{{project_name}}.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'),],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'assets'),
+)
 
 WSGI_APPLICATION = '{{project_name}}.wsgi.application'
 
@@ -77,12 +94,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'templates'),
-)
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'assets'),
-)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -122,8 +133,6 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, 'locale'),
 )
-'''
-
 
 
 #GRAPPELI SETTINGS
@@ -134,7 +143,6 @@ LOCALE_PATHS = (
 
 
 #EASY_THUMBNAILS SETTINGS
-'''
 SOUTH_MIGRATION_MODULES = {
     'easy_thumbnails': 'easy_thumbnails.south_migrations',
 }
