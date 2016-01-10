@@ -28,6 +28,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #For enable sitemaps
+    #'django.contrib.sites',
+    #'django.contrib.sitemaps',
+    #For hooking up a robots.txt
+    #'robots',
     #'crispy_forms',
     #'easy_thumbnails',
     #'rosetta',
