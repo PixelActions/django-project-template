@@ -38,7 +38,14 @@ INSTALLED_APPS = (
     #'rosetta',
 	#'compressor',
 	#'django_extensions',
+    
+    #Enable the following for a contact form
+    #'captcha',
+    #'contact_form.apps.AppConfig',
+    #'django.contrib.sites',
 	#'apps.pages',
+    
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -178,9 +185,6 @@ STATICFILES_FINDERS += (
 
 '''
 #EASY_THUMBNAILS SETTINGS
-SOUTH_MIGRATION_MODULES = {
-    'easy_thumbnails': 'easy_thumbnails.south_migrations',
-}
 THUMBNAIL_SUBDIR = 'thumbs'
 THUMBNAIL_ALIASES = {
     '': {
@@ -189,3 +193,25 @@ THUMBNAIL_ALIASES = {
     },
 }
 '''
+
+
+'''
+#FOR CONTACT FORM
+CONTACT_FORM_USE_SITES = False
+CONTACT_FORM_USE_SIGNALS = True
+CONTACT_FORM_SEND_EMAIL_ON_VALID = True
+CONTACT_FORM_USE_CAPTCHA = True
+'''
+
+'''
+#FOR EMAIL, DONT FORGET TO SPECIFY ALL!:
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = ''
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''
+EMAIL_SUBJECT_PREFIX = ''
+'''
+
