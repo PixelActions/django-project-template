@@ -32,9 +32,10 @@ MEDIA_ROOT = '/home/username/webapps/{{project_name}}_media/'
 '''
 EMAIL_USE_TLS = True
 EMAIL_HOST = ''
-EMAIL_PORT = 
+EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''
 EMAIL_SUBJECT_PREFIX = '[{{project_name}}] '
 '''
 
@@ -49,3 +50,26 @@ CACHES = {
     }
 }
 '''
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
