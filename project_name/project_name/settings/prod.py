@@ -47,6 +47,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': 'unix:/home/username/memcached.sock',
+        'KEY_PREFIX': '{{project_name}}_',
     }
 }
 '''
