@@ -38,14 +38,14 @@ INSTALLED_APPS = (
     #'rosetta',
 	#'compressor',
 	#'django_extensions',
-    
+    #'djangoseo',
     #Enable the following for a contact form
     #'captcha',
     #'contact_form.apps.AppConfig',
     #'django.contrib.sites',
 	#'apps.pages',
-    
-    
+
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -137,7 +137,11 @@ MEDIA_URL = '/media/'
 #MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 #STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
-
+'''
+MIGRATION_MODULES = {
+    'djangoseo': '{{project_name}}.seo_migrations',
+}
+'''
 #FOR MULTILINGUAL WEBSITES:
 #   ENABLE THE LocalMiddelware EXACTLY after SessionMiddleware
 #   Setup the project languages
@@ -163,7 +167,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.i18n',
 )
 #Lastly, point to the LOCALE folder in your project, that the translations should be stored.
-#Run ./manage.py makemessage -l <language code> 
+#Run ./manage.py makemessage -l <language code>
 #for each language, to generate the language file. later, with compilemessages, you can install the translations you used.
 LOCALE_PATHS = (
     os.path.join(PROJECT_ROOT, 'locale'),
@@ -219,4 +223,3 @@ EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = ''
 EMAIL_SUBJECT_PREFIX = ''
 '''
-
