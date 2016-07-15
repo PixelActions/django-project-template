@@ -1,7 +1,19 @@
-<!DOCTYPE html>
-    <head>
-        {% block head %}
-        {% endblock %}
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- metadata -->
+    {% comment %}
+    {% load seo %}
+    Includes everything defined in project_folder/seo.py
+    Usually is title, description, keywords, and facebook og tags
+    
+
+    {% get_metadata %}
+    {% endcomment %}
+    <!-- end meta data -->
     </head>
     <body>
         {% block content %}
