@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import TemplateView
-from contact_form.views import ContactFormView
+#from contact_form.views import ContactFormView
 from django import forms
 
 class HomeView(TemplateView):
@@ -24,7 +24,7 @@ class TemplateLocatorView(TemplateView):
         except TemplateDoesNotExist:
             raise Http404
 
-
+'''
 class ContactView(ContactFormView):
     template_name = 'pages/contact.html'
     #If the form is saved successfully, a messages.success is being sent, else a messages.error.
@@ -32,3 +32,4 @@ class ContactView(ContactFormView):
 
     #form_valid_message = settings.CONTACT_FORM_VALID_MESSAGE
     #form_invalid_message = settings.CONTACT_FORM_INVALID_MESSAGE
+'''
