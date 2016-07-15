@@ -12,7 +12,7 @@ sitemaps = {
 '''
 
 #If HomeView from pages app is gonna be used, uncomment this and the appropriate url entry
-#from apps.pages.views import HomeView
+#from pa_apps.pages.views import HomeView
 
 #Enable for SEO
 #from djangoseo.admin import register_seo_admin
@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^robots\.txt$', include('robots.urls')),
     #url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    #url(r'^', include('apps.pages.urls')),
+    #url(r'^', include('pa_apps.pages.urls')),
     #url(r'^$', HomeView.as_view(), name='home'),
 ]
 

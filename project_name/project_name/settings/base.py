@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     #'captcha',
     #'contact_form.apps.AppConfig',
     #'django.contrib.sites',
-	#'apps.pages',
+	#'pa_apps.pages',
 
 
 )
