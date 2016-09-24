@@ -30,7 +30,18 @@ class BasicMetadata(seo.Metadata):
     og_image = seo.MetaTag(name="og:image",
                            populate_from=default_image, verbose_name='facebook image')
 
-
+    twitter_card = seo.MetaTag(name="twitter:card", populate_from='summary',
+                       verbose_name="twitter card")
+    twitter_site = seo.MetaTag(name="twitter:site", populate_from=default_title,
+                       verbose_name="twitter site")
+    twitter_title = seo.MetaTag(name="twitter:title", populate_from=default_title,
+                       verbose_name="twitter title")
+    twitter_description = seo.MetaTag(name="twitter:description",
+                                 populate_from=default_description,
+                                 verbose_name='twitter description')
+    twitter_image = seo.MetaTag(name="og:image",
+                        populate_from=default_image, verbose_name='twitter image')
+                        
     class Meta:
         #use_sites = True
         #use_cache = True
