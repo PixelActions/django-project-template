@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
 
@@ -31,14 +31,7 @@ urlpatterns = [
 
 
 if settings.DEBUG:
-    urlpatterns += [
-        url(r'^media/(?P<path>.*)$',
-            'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT, }),
-    ]
-
-
-urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [
